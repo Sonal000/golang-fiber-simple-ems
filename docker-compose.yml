@@ -1,0 +1,35 @@
+
+version: '3.8'
+services:
+    app:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      container_name: app
+      ports:
+        - "8181:8181"
+      environment:
+        POSTGRES_HOST: db
+        POSTGRES_PORT: 5432
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: admin123
+        POSTGRES_DB: employeeManagementDB
+      depends_on:
+        - db
+
+    db:
+      image: postgres:13
+      container_name: postgres_db
+      ports:
+        - "5442:5432"
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: admin123
+        POSTGRES_DB: employeeManagementDB
+      volumes:
+         - db_data:/var/lib/postgresql/data
+
+
+
+volumes:
+  db_data:        
