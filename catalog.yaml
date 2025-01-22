@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: PlatformNex
+  labels:
+    environment: development
+  annotations: 
+    backstage.io/edit-url: "https://bitbucket.org/platformnex/cloud_configs/src/catalogfiles/platformnex/catalog-info-dev.yaml?mode=edit&at=catalogfiles"
+    backstage.io/managed-by-location: "url:https://bitbucket.org/platformnex/cloud_configs/src/catalogfiles/platformnex/catalog-info-dev.yaml"
+    backstage.io/managed-by-origin-location: "url:https://bitbucket.org/platformnex/cloud_configs/src/catalogfiles/platformnex/catalog-info-dev.yaml"
+    backstage.io/source-location: "url:https://bitbucket.org/platformnex/cloud_configs/src/catalogfiles/platformnex/"
+    backstage.io/view-url: "https://bitbucket.org/platformnex/cloud_configs/src/catalogfiles/platformnex/catalog-info-dev.yaml"
+    jira/project-key: PEJ
+spec:
+  owner: "user:user"
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: platformnex
+  description: "Core PlatformNex repo for Development"
+  labels:
+    environment: development
+  annotations:
+    backstage.io/source-location: url:https://bitbucket.org/platformnex/platformnex/src/666dac277c2cc485de57d7cc37ad7627903dc2ce/?at=feature%2Fall-plugins
+    backstage.io/kubernetes-id: eks-k8s-2025-01-03-1735920878
+    backstage.io/kubernetes-label-selector: app.kubernetes.io/managed-by=dynatrace-operator
+    backstage.io/kubernetes-namespace: dynatrace
+    google.com/cloudbuild-project-slug: prj-dev-platform-next
+    google.com/cloudbuild-location: us-central1
+    jira/project-key: PEJ
+    kibana-url: "https://a131a1b5d8ff401f93d3a58a65de997b.us-central1.gcp.cloud.es.io:9243"
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/metrics"
+    prometheus.io/port: "9090"
+    # prometheus.io/rule: memUsage|component,node_memory_active_bytes|instance,sum by (instance) (node_cpu_seconds_total)
+    prometheus.io/rule: sum by (instance) (node_cpu_seconds_total), sum by (instance) (node_memory_Active_bytes), sum by (instance) (node_memory_MemTotal_bytes)
+    prometheus.io/alert: "all"
+    pagerduty.com/integration-key: 4c280fa2a1094100d0767478390a85d6
+    pulumi.com/project-slug: mcmuralishclint/pulumi-cicd/dev
+    pulumi.com/orga-slug: mcmuralishclint
+    bitbucket.org/project-slug: platformnex/platformnex
+    bitbucket.org/repo-url: https://bitbucket.org/platformnex/platformnex/src/master/
+    sonarqube.org/project-key: platformnex
+    envsecrets.com/integration-key: 4c280fa2a1094100d0767478390a85d6
+    backstage.io/techdocs-ref: dir:.
+    artifact-registry/repository: projects/prj-dev-platform-next/locations/us-central1/repositories/platformnex
+    datadoghq.com/dashboard-url: https://p.us5.datadoghq.com/sb/52f69b0e-d82d-11ef-95a0-06a4a1d3d8f2-9b1fb9605ab67a9299a1c99320b6cc3c?refresh_mode=sliding&from_ts=1737474878403&to_ts=1737489278403&live=true
+    datadoghq.com/graph-token: ae613578f391d1790ab848a47a4e5acde7d6fc0cdc1eb920b10e1219f412e8aa
+  links:
+    - url: https://platformnex-prod-pyzx2jrmda-uc.a.run.app/
+      title: Service URL-Cloud Run
+  tags:
+    - development
+spec:
+  type: service
+  owner: "group:DEFAULT"
+  lifecycle: experimental
+  system: PlatformNex
+
+
