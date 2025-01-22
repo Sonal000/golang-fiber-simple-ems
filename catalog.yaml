@@ -46,7 +46,7 @@ metadata:
     backstage.io/techdocs-ref: dir:.
     artifact-registry/repository: projects/prj-dev-platform-next/locations/us-central1/repositories/platformnex
     datadoghq.com/dashboard-url: https://p.us5.datadoghq.com/sb/52f69b0e-d82d-11ef-95a0-06a4a1d3d8f2-9b1fb9605ab67a9299a1c99320b6cc3c?refresh_mode=sliding&from_ts=1737474878403&to_ts=1737489278403&live=true
-    datadoghq.com/graph-token: ae613578f391d1790ab848a47a4e5acde7d6fc0cdc1eb920b10e1219f412e8aa
+    datadoghq.com/graph-token: ae613578f391d1790ab848a47a4e5acde7d6fc0cdc1eb920b10e1219f412e8aa 
   links:
     - url: https://platformnex-prod-pyzx2jrmda-uc.a.run.app/
       title: Service URL-Cloud Run
